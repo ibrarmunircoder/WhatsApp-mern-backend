@@ -27,7 +27,7 @@ app.use(cors());
 // });
 
 // DB Config
-const connection_url = 'mongodb+srv://admin:mR0NNF9ZJxh1n58z@cluster0.ks08u.mongodb.net/whatsappdb?retryWrites=true&w=majority';
+const connection_url = process.env.MONGODB_URL || 'mongodb+srv://admin:mR0NNF9ZJxh1n58z@cluster0.ks08u.mongodb.net/whatsappdb?retryWrites=true&w=majority';
 mongoose.connect(connection_url, {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -76,7 +76,6 @@ db.once('open', () => {
     });
 });
 
-//?????
 
 // api Routes
 app.use(messagesRoutes);
@@ -84,7 +83,7 @@ app.use(roomsRoutes);
 
 // listener
 app.listen(port, () => {
-    console.log(`Server is running on localhost://127.0.0.0.1:${port}`);
+    console.log(`Server is running on port ${port}`);
 });
 
 
