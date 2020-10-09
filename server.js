@@ -27,7 +27,7 @@ app.use(cors());
 // });
 
 // DB Config
-const connection_url = process.env.MONGODB_URL || 'mongodb+srv://admin:mR0NNF9ZJxh1n58z@cluster0.ks08u.mongodb.net/whatsappdb?retryWrites=true&w=majority';
+const connection_url = process.env.MONGODB_URL;
 mongoose.connect(connection_url, {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -88,3 +88,4 @@ app.listen(port, () => {
 
 
 // mR0NNF9ZJxh1n58z
+// || 'mongodb+srv://admin:mR0NNF9ZJxh1n58z@cluster0.ks08u.mongodb.net/whatsappdb?retryWrites=true&w=majority';
